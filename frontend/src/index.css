@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Quantify";
+    src: local("Quantify"),
+    url("./fonts/Quantify.ttf") format("trueType");
+}
