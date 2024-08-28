@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-const socket = io('https://54.66.194.77:5000'); // Connect to the Flask server
+const socket = io('https://flask-backend-poem-generator.vercel.app:5000'); // Connect to the Flask server
 
 function App() {
   const [prompt, setPrompt] = useState<string>('');
