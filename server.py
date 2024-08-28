@@ -6,7 +6,7 @@ from flask_socketio import SocketIO, emit
 import time
 
 # Configure the API key
-genai.configure(api_key='your api key')
+genai.configure(api_key='AIzaSyAJBQa_hLSdOSByytzF7R_2R3tAEFmVQQ0')
 
 model = genai.GenerativeModel("gemini-1.5-flash")
 
