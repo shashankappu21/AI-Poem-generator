@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-const socket = io('http://127.0.0.1:5000'); // Connect to the Flask server
+const socket = io('http://172.31.6.50:5000'); // Connect to the Flask server
 
 function App() {
   const [prompt, setPrompt] = useState<string>('');
