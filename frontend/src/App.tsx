@@ -30,7 +30,7 @@ const socket = io('http://127.0.0.1:5000'); // Connect to the Flask server
 function App() {
   const [prompt, setPrompt] = useState<string>('');
   const [displayedPoem, setDisplayedPoem] = useState<string>('');
-  const [emotions, setEmotions] = useState<{ [key: string]: number }>({});
+  const setEmotions = useState<{ [key: string]: number }>({})[1];
   const [chartData, setChartData] = useState<any>({});
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [showChart, setShowChart] = useState<boolean>(false);
@@ -38,7 +38,7 @@ function App() {
   const [poemGenerated, setPoemGenerated] = useState<boolean>(false);
   const [isReading, setIsReading] = useState<boolean>(false);
   const [showOptions, setShowOptions] = useState<boolean>(true);
-  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const setIsEditing = useState<boolean>(false)[1];
 
   // Emotion Sliders
   const [joy, setJoy] = useState<number>(50);
