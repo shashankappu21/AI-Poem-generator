@@ -25,7 +25,7 @@ ChartJS.register(
   Legend
 );
 
-const socket = io('https://flask-backend-poem-generator.vercel.app:5000'); // Connect to the Flask server
+const socket = io('http://13.236.91.37:80'); // Connect to the Flask server
 
 function App() {
   const [prompt, setPrompt] = useState<string>('');
@@ -43,8 +43,7 @@ function App() {
   // Emotion Sliders
   const [joy, setJoy] = useState<number>(50);
   const [sadness, setSadness] = useState<number>(50);
-  const [neutral, setNeutral] = useState<number>(50);
-  const [disgust, setDisgust] = useState<number>(50);
+  const [love, setLove] = useState<number>(50);
   const [fear, setFear] = useState<number>(50);
   const [anger, setAnger] = useState<number>(50);
   const [surprise, setSurprise] = useState<number>(50);
@@ -59,7 +58,7 @@ function App() {
     setIsEditing(false);
     setShowAdvanced(false);
 
-    const emotionVector = [joy, sadness, neutral, disgust, fear, anger, surprise];
+    const emotionVector = [joy, sadness, love, fear, anger, surprise];
     socket.emit('send_prompt', { prompt, emotionVector });
   };
 
@@ -112,8 +111,7 @@ function App() {
         const colorMapping : Record<string, string> = {
           joy: '#22C55E',
           sad: '#3B82F6',
-          neutral: '#9CA3AF',
-          disgust: '#4338CA',
+          love: '#4338CA',
           fear: '#F97316',
           anger: '#DC2626',
           surprise: '#F59E0B',
@@ -252,36 +250,13 @@ function App() {
                         />
                       </div>
                       <div>
-                        <label className="block text-md font-medium text-gray-700">Neutral: {neutral}</label>
+                        <label className="block text-md font-medium text-gray-700">Love: {love}</label>
                         <input
                           type="range"
                           min="1"
                           max="100"
-                          value={neutral}
-                          onChange={(e) => setNeutral(Number(e.target.value))}
-                          className="w-full appearance-none bg-transparent 
-                            [&::-webkit-slider-runnable-track]:rounded-full 
-                            [&::-webkit-slider-runnable-track]:bg-gradient-to-r 
-                            [&::-webkit-slider-runnable-track]:from-gray-300
-                            [&::-webkit-slider-runnable-track]:to-gray-400
-                            [&::-webkit-slider-runnable-track]:h-2
-                            [&::-webkit-slider-thumb]:appearance-none 
-                            [&::-webkit-slider-thumb]:h-[16px] 
-                            [&::-webkit-slider-thumb]:w-[16px] 
-                            [&::-webkit-slider-thumb]:-mt-[4px] 
-                            [&::-webkit-slider-thumb]:rounded-full 
-                            [&::-webkit-slider-thumb]:bg-gray-500 
-                            [&::-moz-range-track]:bg-none"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-md font-medium text-gray-700">Disgust: {disgust}</label>
-                        <input
-                          type="range"
-                          min="1"
-                          max="100"
-                          value={disgust}
-                          onChange={(e) => setDisgust(Number(e.target.value))}
+                          value={love}
+                          onChange={(e) => setLove(Number(e.target.value))}
                           className="w-full appearance-none bg-transparent 
                             [&::-webkit-slider-runnable-track]:rounded-full 
                             [&::-webkit-slider-runnable-track]:bg-gradient-to-r 
